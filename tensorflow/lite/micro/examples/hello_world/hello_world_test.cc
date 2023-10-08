@@ -14,6 +14,7 @@ limitations under the License.
 ==============================================================================*/
 
 #include <math.h>
+#include <iostream>
 
 #include "tensorflow/lite/core/c/common.h"
 #include "tensorflow/lite/micro/examples/hello_world/models/hello_world_float_model_data.h"
@@ -121,6 +122,8 @@ TfLiteStatus LoadQuantModelAndPerformInference() {
 
   TfLiteTensor* input = interpreter.input(0);
   TFLITE_CHECK_NE(input, nullptr);
+
+  std::cout<<"Dims Size:"<<input->dims->size<<std::endl;
 
   TfLiteTensor* output = interpreter.output(0);
   TFLITE_CHECK_NE(output, nullptr);

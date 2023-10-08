@@ -170,7 +170,7 @@ ifeq ($(TARGET), $(HOST_OS))
 endif
 
 CXXFLAGS := \
-  -std=c++11 \
+  -std=c++17 \
   -fno-rtti \
   -fno-exceptions \
   -fno-threadsafe-statics \
@@ -248,7 +248,7 @@ else ifeq ($(BUILD_TYPE), no_tf_lite_static_memory)
 
 	# We are using C++17 for the no_tf_lite_static_memory_build to make it close
 	# to the TfLite bazel build.
-	CXXFLAGS := $(filter-out -std=c++11, $(CXXFLAGS))
+	CXXFLAGS := $(filter-out -std=c++17, $(CXXFLAGS))
 	CXXFLAGS += -std=c++17
 	CCFLAGS := $(filter-out -std=c11, $(CCLAGS))
 	CCFLAGS += -std=c17
